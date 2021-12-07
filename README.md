@@ -1,0 +1,2 @@
+# wDuels
+a duels plugin
