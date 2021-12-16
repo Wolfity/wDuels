@@ -1,0 +1,6 @@
+name: wDuels
+main: me.wolf.wduels.DuelsPlugin
+version: 1.0.0
+description: a duels plugin
+author: ${project.author}
+api-version: 1.13

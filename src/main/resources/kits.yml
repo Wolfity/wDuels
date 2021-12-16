@@ -1,0 +1,464 @@
+kits: # Gets placed in inventory by order
+  UHC:
+    has-potions: false
+    game-type: UHC
+    items:
+      '1':
+        has-enchants: true
+        material: DIAMOND_SWORD
+        name: "&bUHC Sword"
+        amount: 1
+        enchants: DAMAGE_ALL:1;DURABILITY:3
+      '2':
+        has-enchants: false
+        material: GOLDEN_APPLE
+        name: "&cGolden Head"
+        amount: 5
+      '3':
+        has-enchants: false
+        material: LAVA_BUCKET
+        name: "Lava Bucket"
+        amount: 1
+      '4':
+        has-enchants: false
+        material: FISHING_ROD
+        name: "&bRod"
+        amount: 1
+      '5':
+        has-enchants: true
+        material: BOW
+        name: "&cBow Of Doom"
+        amount: 1
+        enchants: ARROW_DAMAGE:1
+      '6':
+        has-enchants: false
+        material: WATER_BUCKET
+        name: "Water Bucket"
+        amount: 1
+      '7':
+        has-enchants: false
+        material: COBBLESTONE
+        name: "&bStone"
+        amount: 64
+      '8':
+        has-enchants: false
+        material: ARROW
+        name: "&cSharp Pencil"
+        amount: 16
+      '9':
+        has-enchants: true
+        material: DIAMOND_HELMET
+        name: "&bDia Helmet"
+        amount: 1
+        enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+      '10':
+        has-enchants: true
+        material: DIAMOND_CHESTPLATE
+        name: "&bDia Chestplate"
+        amount: 1
+        enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+      '11':
+         has-enchants: true
+         material: DIAMOND_LEGGINGS
+         name: "&bDia Leggings"
+         amount: 1
+         enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+      '12':
+         has-enchants: true
+         material: DIAMOND_BOOTS
+         name: "&bDia Boots"
+         amount: 1
+         enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+  NO_DEBUFF: #If you want to use potions in your kit, use THIS as an example, ALL fields are required to be used and filled out.
+      has-potions: true
+      game-type: NO_DEBUFF
+      items:
+        '1':
+          has-enchants: true
+          is-potion: false
+          fill-empty-spaces: false
+          material: DIAMOND_SWORD
+          name: "&bFire Sword"
+          amount: 1
+          enchants: DAMAGE_ALL:2;FIRE_ASPECT:1;DURABILITY:1
+        '2':
+          has-enchants: false
+          is-potion: false
+          fill-empty-spaces: false
+          material: ENDER_PEARL
+          name: "Magic Pearls"
+          amount: 16
+        '3':
+          has-enchants: false
+          is-potion: false
+          fill-empty-spaces: false
+          material: COOKED_BEEF
+          name: "&bMedium Rare Beef"
+          amount: 64
+        '4':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&aSpeed 2"
+          amount: 5
+          data: 8226
+        '5':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&bfire-resistance"
+          amount: 2
+          data: 8227
+        '6':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_HELMET
+           name: "&bDia Helmet"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '7':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_CHESTPLATE
+           name: "&bDia Chestplate"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '8':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_LEGGINGS
+           name: "&bDia Leggings"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '9':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_BOOTS
+           name: "&bDia Boots"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '10':
+           has-enchants: false
+           is-potion: true
+           fill-empty-spaces: true
+           material: POTION
+           name: "&bSplash Potion of Regen (2)"
+           amount: 1 # Just keep it at 1, since fill-empty-spaces will fill the leftover spaces in the inventory!
+           data: 16421
+  DEBUFF:
+      has-potions: true
+      game-type: DEBUFF
+      items:
+        '1':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_SWORD
+           name: "&bFire Sword"
+           amount: 1
+           enchants: DAMAGE_ALL:2;FIRE_ASPECT:1;DURABILITY:1
+        '2':
+           has-enchants: false
+           is-potion: false
+           fill-empty-spaces: false
+           material: ENDER_PEARL
+           name: "Magic Pearls"
+           amount: 16
+        '3':
+           has-enchants: false
+           is-potion: false
+           fill-empty-spaces: false
+           material: COOKED_BEEF
+           name: "&bMedium Rare Beef"
+           amount: 64
+        '4':
+           has-enchants: false
+           is-potion: true
+           fill-empty-spaces: false
+           material: POTION
+           name: "&aSpeed 2"
+           amount: 5
+           data: 8226
+        '5':
+           has-enchants: false
+           is-potion: true
+           fill-empty-spaces: false
+           material: POTION
+           name: "&bfire-resistance 2"
+           amount: 2
+           data: 8227
+        '6':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_HELMET
+           name: "&bDia Helmet"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '7':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_CHESTPLATE
+           name: "&bDia Chestplate"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '8':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_LEGGINGS
+           name: "&bDia Leggings"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '9':
+           has-enchants: true
+           is-potion: false
+           fill-empty-spaces: false
+           material: DIAMOND_BOOTS
+           name: "&bDia Boots"
+           amount: 1
+           enchants: PROTECTION_ENVIRONMENTAL:1;DURABILITY:3
+        '10':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&bWeakness"
+          amount: 2
+          data: 16392
+        '11':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&bSlowness 2"
+          amount: 3
+          data: 16426
+        '12':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: true
+          material: POTION
+          name: "&bSplash Potion of Regen (2)"
+          amount: 1 # Just keep it at 1, since fill-empty-spaces will fill the leftover spaces in the inventory!
+          data: 16421
+  COMBO:
+      has-potions: true
+      game-type: COMBO
+      items:
+        '1':
+          has-enchants: true
+          is-potion: false
+          fill-empty-spaces: false
+          material: DIAMOND_SWORD
+          name: "&bFire Sword"
+          amount: 1
+          enchants: DAMAGE_ALL:3;FIRE_ASPECT:1;DURABILITY:5
+        '2':
+          has-enchants: false
+          is-potion: false
+          fill-empty-spaces: false
+          material: ENDER_PEARL
+          name: "Magic Pearls"
+          amount: 16
+        '3':
+          has-enchants: false
+          is-potion: false
+          fill-empty-spaces: false
+          material: ENCHANTED_GOLDEN_APPLE # You need this exact text to get enchanted golden apples
+          name: "&bMedium Rare Beef"
+          amount: 64
+        '4':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&aSpeed 2"
+          amount: 5
+          data: 8226
+        '5':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&bfire-resistance 2"
+          amount: 2
+          data: 8227
+        '6':
+          has-enchants: true
+          is-potion: false
+          fill-empty-spaces: false
+          material: DIAMOND_HELMET
+          name: "&bDia Helmet"
+          amount: 1
+          enchants: PROTECTION_ENVIRONMENTAL:4;DURABILITY:5
+        '7':
+          has-enchants: true
+          is-potion: false
+          fill-empty-spaces: false
+          material: DIAMOND_CHESTPLATE
+          name: "&bDia Chestplate"
+          amount: 1
+          enchants: PROTECTION_ENVIRONMENTAL:4;DURABILITY:5
+        '8':
+          has-enchants: true
+          is-potion: false
+          fill-empty-spaces: false
+          material: DIAMOND_LEGGINGS
+          name: "&bDia Leggings"
+          amount: 1
+          enchants: PROTECTION_ENVIRONMENTAL:4;DURABILITY:5
+        '9':
+          has-enchants: true
+          is-potion: false
+          fill-empty-spaces: false
+          material: DIAMOND_BOOTS
+          name: "&bDia Boots"
+          amount: 1
+          enchants: PROTECTION_ENVIRONMENTAL:4;DURABILITY:5
+        '10':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&bStrength 2"
+          amount: 2
+          data: 8297
+        '11':
+          has-enchants: false
+          is-potion: true
+          fill-empty-spaces: false
+          material: POTION
+          name: "&bRegeneration 2"
+          amount: 3
+          data: 8289
+  DIAMOND:
+      has-potions: false
+      game-type: DIAMOND
+      items:
+        '1':
+          has-enchants: false
+          material: DIAMOND_SWORD
+          name: "&bDiamando Sword"
+          amount: 1
+        '2':
+          has-enchants: false
+          material: GOLDEN_APPLE
+          name: "&cGolden Apple"
+          amount: 8
+        '3':
+          has-enchants: false
+          material: DIAMOND_HELMET
+          name: "&bDiamando Helmet"
+          amount: 1
+        '4':
+          has-enchants: false
+          material: DIAMOND_CHESTPLATE
+          name: "&bDiamando Chestplate"
+          amount: 1
+        '5':
+           has-enchants: false
+           material: DIAMOND_LEGGINGS
+           name: "&bDiamando Leggings"
+           amount: 1
+        '6':
+           has-enchants: false
+           material: DIAMOND_BOOTS
+           name: "&bDiamando Boots"
+           amount: 1
+  CLASSIC:
+      has-potions: false
+      game-type: CLASSIC
+      items:
+        '1':
+          has-enchants: false
+          material: STONE_SWORD
+          name: "&bRocky Sword"
+          amount: 1
+        '2':
+          has-enchants: false
+          material: GOLDEN_APPLE
+          name: "&cGolden Apple"
+          amount: 1
+        '3':
+          has-enchants: false
+          material: GOLD_HELMET
+          name: "&bGolden Helmet"
+          amount: 1
+        '4':
+          has-enchants: false
+          material: LEATHER_CHESTPLATE
+          name: "&bLeather Chestplate"
+          amount: 1
+        '5':
+           has-enchants: false
+           material: CHAINMAIL_LEGGINGS
+           name: "&bChain Leggings"
+           amount: 1
+        '6':
+           has-enchants: false
+           material: IRON_BOOTS
+           name: "&bIron Boots"
+           amount: 1
+        '7':
+           has-enchants: false
+           material: FLINT_AND_STEEL
+           name: "&cLighter"
+           amount: 1
+        '8':
+          has-enchants: false
+          material: COOKED_BEEF
+          name: "&bMedium Rare Steak"
+          amount: 5
+        '9':
+          has-enchants: false
+          material: FISHING_ROD
+          name: "&bRod"
+          amount: 1
+  ARCHER:
+      has-potions: false
+      game-type: ARCHER
+      items:
+        '1':
+          has-enchants: true
+          material: BOW
+          name: "&bPencil Shooter"
+          amount: 1
+          enchants: ARROW_INFINITE:1
+        '2':
+          has-enchants: false
+          material: ARROW
+          name: "&cGolden Apple"
+          amount: 1
+        '3':
+          has-enchants: false
+          material: LEATHER_HELMET
+          name: "&bGolden Helmet"
+          amount: 1
+        '4':
+          has-enchants: false
+          material: LEATHER_CHESTPLATE
+          name: "&bLeather Chestplate"
+          amount: 1
+        '5':
+          has-enchants: false
+          material: LEATHER_LEGGINGS
+          name: "&bChain Leggings"
+          amount: 1
+        '6':
+          has-enchants: false
+          material: LEATHER_BOOTS
+          name: "&bDiamando Boots"
+          amount: 1
+        '7':
+          has-enchants: false
+          material: COOKED_BEEF
+          name: "&cMedium Steak"
+          amount: 16
