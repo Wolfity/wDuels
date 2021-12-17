@@ -33,16 +33,6 @@
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
 
-        <repository>
-            <id>enginehub-maven</id>
-            <url>https://maven.enginehub.org/repo/</url>
-        </repository>
-
-        <repository>
-            <id>elMakers</id>
-            <url>http://maven.elmakers.com/repository/</url>
-        </repository>
-
 
     </repositories>
 

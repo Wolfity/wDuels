@@ -6,7 +6,6 @@ import me.wolf.wduels.game.GameState;
 import me.wolf.wduels.game.GameType;
 import me.wolf.wduels.player.DuelPlayer;
 import me.wolf.wduels.player.PlayerState;
-import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -7,7 +7,6 @@ import me.wolf.wduels.utils.Utils;
 import me.wolf.wduels.wineffects.WinEffect;
 import me.wolf.wduels.wineffects.effects.DefaultWinEffect;
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
