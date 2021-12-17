@@ -43,7 +43,7 @@ public class GameHandler {
                     game.getArena().resetTimer();
                     plugin.getGameManager().cleanUpGame(game);
                 }, 200L);
-                System.out.println("The game instance " + game + " has ended!");
+                Bukkit.getLogger().info("The game instance " + game + " has ended!");
                 break;
         }
     }

@@ -3,6 +3,7 @@ package me.wolf.wduels.managers;
 import me.wolf.wduels.DuelsPlugin;
 import me.wolf.wduels.file.YamlConfig;
 import me.wolf.wduels.utils.Utils;
+import org.bukkit.Bukkit;
 
 public class FileManager {
 
@@ -14,7 +15,7 @@ public class FileManager {
             arenas = new YamlConfig("arenas.yml", plugin);
             kits = new YamlConfig("kits.yml", plugin);
         } catch (final Exception e) {
-            System.out.println(Utils.colorize("&4Something went wrong while loading the yml files"));
+            Bukkit.getLogger().info(Utils.colorize("&4Something went wrong while loading the yml files"));
         }
 
     }

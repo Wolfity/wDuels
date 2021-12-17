@@ -123,7 +123,7 @@ public class GameManager {
         game.getQueue().clear();
         games.remove(game);
 
-        System.out.println("The game instance " + game + " has been ended! Arena is now available again");
+        Bukkit.getLogger().info("The game instance " + game + " has been ended! Arena is now available again");
     }
 
     private void handleResult(final Game game) { // sending the game result to the player
@@ -171,7 +171,7 @@ public class GameManager {
     }
 
     public void startGame(final Game game) { // start the game, teleport every player to a different spawn
-        System.out.println("The game " + game + " has started!");
+        Bukkit.getLogger().info("The game " + game + " has started!");
         final Queue<Location> locationTpQueue = new ArrayDeque<>(game.getArena().getSpawns());
 
         if (game.getArena().getSpawns().size() == 2) { // less spawns then players
