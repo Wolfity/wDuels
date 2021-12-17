@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class ItemUtils {
+public final class ItemUtils {
 
     public static ItemStack createItem(final Material mat, final String display, final int amount) {
         final ItemStack is = new ItemStack(mat, amount);
