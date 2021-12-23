@@ -37,6 +37,21 @@ public class DuelsCommand extends BaseCommand {
             tell(Messages.HELP_MSG);
         }
 
+        if(isAdmin() && args.length == 1) {
+            if(args[0].equalsIgnoreCase( "setspawn")) {
+                plugin.getConfig().set("spawn.world", player.getLocation().getWorld().getName());
+                plugin.getConfig().set("spawn.x", player.getLocation().getX());
+                plugin.getConfig().set("spawn.y", player.getLocation().getY());
+                plugin.getConfig().set("spawn.z", player.getLocation().getZ());
+                plugin.getConfig().set("spawn.pitch", player.getLocation().getPitch());
+                plugin.getConfig().set("spawn.yaw", player.getLocation().getYaw());
+                plugin.saveConfig();
+                player.sendMessage(Messages.SET_LOBBY_SPAWN);
+            } else if (args[0].equalsIgnoreCase("admin")) {
+                tell(Messages.ADMIN_HELP);
+            }
+        }
+
         if (args.length == 1) {
             switch (args[0]) {
                 case "join":
@@ -56,10 +71,6 @@ public class DuelsCommand extends BaseCommand {
                     }
                     tell(result.toString());
                     break;
-                default:
-                    tell(Messages.HELP_MSG);
-                    break;
-
             }
         }
         if (args.length == 2) {
@@ -91,16 +102,6 @@ public class DuelsCommand extends BaseCommand {
                     break;
                 case "addspawn":
                     addSpawn(arenaYml, name, player);
-                    break;
-                case "setspawn":
-                    plugin.getConfig().set("spawn.world", player.getLocation().getWorld().getName());
-                    plugin.getConfig().set("spawn.x", player.getLocation().getX());
-                    plugin.getConfig().set("spawn.y", player.getLocation().getY());
-                    plugin.getConfig().set("spawn.z", player.getLocation().getZ());
-                    plugin.getConfig().set("spawn.pitch", player.getLocation().getPitch());
-                    plugin.getConfig().set("spawn.yaw", player.getLocation().getYaw());
-                    plugin.saveConfig();
-                    player.sendMessage(Messages.SET_LOBBY_SPAWN);
                     break;
                 default:
                     tell(Messages.ADMIN_HELP);

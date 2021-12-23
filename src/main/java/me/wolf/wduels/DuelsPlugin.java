@@ -34,12 +34,13 @@ public class DuelsPlugin extends JavaPlugin {
     public void onEnable() {
         this.plugin = this;
 
+        this.getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
         registerManagers();
         registerCommands();
         registerListeners();
 
-        this.getConfig().options().copyDefaults();
-        saveDefaultConfig();
 
         Bukkit.getPluginManager().registerEvents(new BlockPlace(plugin), this);
 

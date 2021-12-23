@@ -2,7 +2,7 @@ package me.wolf.wduels.constants;
 
 import me.wolf.wduels.utils.Utils;
 
-public class Messages {
+public final class Messages {
 
     public static final String HELP_MSG = "&7[----&aDuels Help&7----] \n" +
             "&a/duel <user> &7- Sends a duel request to the user\n" +
@@ -14,9 +14,9 @@ public class Messages {
     public static final String ADMIN_HELP = "&7[----&cDuels Admin Help&7----]\n" +
             "&a/duels <createarena> <name> &7- Create an arena\n" +
             "&a/duels <deletearena <name> &7- Deletes an arena\n" +
-            "&a/duels <addarenaspawn> <name> &7- Adds an arena spawn\n" +
+            "&a/duels <addspawn> <name> &7- Adds an arena spawn\n" +
             "&a/duels <admin> &7- Shows the admin help message\n" +
-            "&a/duels setspawn &7- Sets the duel lobby spawn" +
+            "&a/duels setspawn &7- Sets the duel lobby spawn\n" +
             "[----------------------]";
 
     public static final String ARENA_CREATED = Utils.colorize(
@@ -45,17 +45,17 @@ public class Messages {
 
     public static final String NOT_IN_DUELS = Utils.colorize("&aYou are currently not the duels gamemode!");
 
-    public static final String[] GAME_STARTED = new String[] {
-      "&a-----------------------------------------------------",
-      "&2&l The game has started, good luck!",
-      "&7Opponents: &c{opponents}",
-      "&7Gamemode: &c{gametype}",
-      " ",
-      "&7May the best win!",
+    public static final String[] GAME_STARTED = new String[]{
+            "&a-----------------------------------------------------",
+            "&2&l The game has started, good luck!",
+            "&7Opponents: &c{opponents}",
+            "&7Gamemode: &c{gametype}",
+            " ",
+            "&7May the best win!",
             "&a-----------------------------------------------------"
     };
 
-    public static final String[] PRIVATE_GAME_STARTED = new String[] {
+    public static final String[] PRIVATE_GAME_STARTED = new String[]{
             "&a-----------------------------------------------------",
             "&c&lThis is a private Game, stats will not be updated!",
             "&2&l The game has started, good luck!",
@@ -66,7 +66,7 @@ public class Messages {
             "&a-----------------------------------------------------"
     };
 
-    public static final String[] GAME_ENDED = new String[] {
+    public static final String[] GAME_ENDED = new String[]{
             "&8-----------------------------------------------------",
             "&c&lGame Over",
             "&7You &6&l{result}",
