@@ -29,7 +29,11 @@ public class KitManager {
 
     private final Set<Kit> kits = new HashSet<>();
 
-
+    /**
+     * @param cfg kit config
+     *            Method that deals with loading in all the kit items
+     *            Performs several checks to see whether there are enchants or not, etc.
+     */
     public void loadKits(final YamlConfig cfg) { // load in all kits (kits.yml)
         try {
             for (final String kit : cfg.getConfig().getConfigurationSection("kits").getKeys(false)) { // loop section (all kits)
@@ -120,7 +124,7 @@ public class KitManager {
                 } else if (ItemUtils.isBoots(item.getType())) {
                     player.getInventory().setBoots(item);
                 }
-             } else player.getInventory().addItem(item);
+            } else player.getInventory().addItem(item);
 
         });
 

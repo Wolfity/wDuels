@@ -36,19 +36,12 @@ public class GameManager {
 
     private final Set<Game> games = new HashSet<>();
 
-    public Game createGame(final Arena arena, final GameType gameType) {
-        if (gameType == GameType.UHC) {
-            final ModifiableGame game = new ModifiableGame(arena, gameType);
-            game.setModifiable(true);
-            games.add(game);
-            return game;
-        } else {
-            final Game game = new Game(arena, gameType);
-            games.add(game);
-            return game;
-        }
-    }
-
+    /**
+     * @param arena     the arena we are using for this game object
+     * @param gameType  the gametype used for this game object
+     * @param isPrivate whether the game is a private game or not
+     * @return a new Game object
+     */
     public Game createGame(final Arena arena, final GameType gameType, final boolean isPrivate) {
         if (isPrivate) {
             if (gameType == GameType.UHC) {
@@ -60,23 +53,29 @@ public class GameManager {
                 games.add(game);
                 return game;
             }
+        } else {
+            if (gameType == GameType.UHC) {
+                final ModifiableGame game = new ModifiableGame(arena, gameType);
+                game.setModifiable(true);
+                games.add(game);
+                return game;
+            } else {
+                final Game game = new Game(arena, gameType);
+                games.add(game);
+                return game;
+            }
         }
-        return null;
+
     }
 
     public Game getFreeGameByGameType(final GameType gameType) { // for the people in the queue, find a matching queue
         return games.stream().filter(g -> g.getGameType() == gameType).filter(g -> g.getGameState() == GameState.QUEUE).filter(game -> !game.isPrivate()).findFirst().orElse(null);
     }
 
-    public Game getGameByArena(Arena arena) {
-        for (Game game : games) {
-            if (game.getArena().equals(arena)) {
-                return game;
-            }
-        }
-        return null;
-    }
-
+    /**
+     * @param duelPlayer checking if this player is in the queue
+     * @return true if the player is in the queue, false if not
+     */
     public boolean isPlayerInQueue(final DuelPlayer duelPlayer) { // check if a specific player is in a queue
         return games.stream().anyMatch(game -> game.getQueue().contains(duelPlayer));
     }
@@ -85,6 +84,10 @@ public class GameManager {
         return games.stream().filter(game -> game.getQueue().contains(player)).findFirst().orElse(null);
     }
 
+    /**
+     * @param killed the killed player
+     * @param game   the game a player was killed in
+     */
     public void handleGameKill(final DuelPlayer killed, final Game game) { // if a kill was made, remove from the queue, send the game result and a msg
         plugin.getScoreboard().lobbyScoreboard(killed.getBukkitPlayer());
         killed.setHasLost(true);
@@ -93,6 +96,9 @@ public class GameManager {
         removeFromQueue(game, killed);
     }
 
+    /**
+     * @param game method to clean up the arena/game after the game has ended
+     */
     public void cleanUpGame(final Game game) { // deals with the end of the game, save data, teleport to lobby, and removing the last player from the queue
         teleportToLobby(game);
         if (game.isModifiable()) {
@@ -126,14 +132,21 @@ public class GameManager {
         Bukkit.getLogger().info("The game instance " + game + " has been ended! Arena is now available again");
     }
 
+    /**
+     * @param game method that deals with sending the users a message when the game is over
+     */
     private void handleResult(final Game game) { // sending the game result to the player
         if (isDraw(game)) {
             game.getQueue().forEach(queueMember -> {
-                queueMember.sendCenteredMessage("&7-----------------------------------------------------");
-                queueMember.sendCenteredMessage("");
-                queueMember.sendCenteredMessage("&7The timer ran out - &6&lDraw");
-                queueMember.sendCenteredMessage("");
-                queueMember.sendCenteredMessage("&7-----------------------------------------------------");
+                queueMember.sendCenteredMessage(new String[]{
+                        "&7-----------------------------------------------------",
+                        "",
+                        "&7The timer ran out - &6&lDraw",
+                        "",
+                        "&7-----------------------------------------------------"
+
+                });
+
             });
         } else {
             game.getQueue().forEach(queueMember -> {
@@ -146,7 +159,11 @@ public class GameManager {
         }
     }
 
-
+    /**
+     * @param game   the game a player left
+     * @param player the player that left the game
+     *               Method that deals with a player leaving the game, making the necessary checks
+     */
     public void handleGameLeave(final Game game, final DuelPlayer player) { // if a user leaves a game, remove the user from the queue and end the game
         removeFromQueue(game, player);
         if (game.getQueue().size() < 2) { // there are less players in the game then there are required to be (2)
@@ -154,6 +171,11 @@ public class GameManager {
         }
     }
 
+    /**
+     * @param game   the game a played joined
+     * @param player the player that joined the game
+     *               Adding the player to the queue and performing the necessary checks
+     */
     public void joinQueue(final Game game, final DuelPlayer player) { // add a user to the queue, apply scoreboard
 
         player.getInventory().setItem(8, ItemUtils.createItem(Material.BARRIER, "&cClick To Dequeue")); // give inventory
@@ -170,6 +192,10 @@ public class GameManager {
         }
     }
 
+    /**
+     * @param game game that will be started
+     *             Method that deals witrh the starting of the game, giving the kits, etc.
+     */
     public void startGame(final Game game) { // start the game, teleport every player to a different spawn
         Bukkit.getLogger().info("The game " + game + " has started!");
         final Queue<Location> locationTpQueue = new ArrayDeque<>(game.getArena().getSpawns());
@@ -182,7 +208,7 @@ public class GameManager {
                 player.setGameMode(GameMode.SURVIVAL);
 
                 plugin.getKitManager().applyKitCorrectly(queueMember, game.getGameType()); // apply the kits
-                if(game.isPrivate()) {
+                if (game.isPrivate()) {
                     for (final String m : Messages.PRIVATE_GAME_STARTED) { // send a nice centered message for private games (no stats update addition)
                         queueMember.sendCenteredMessage(m.
                                 replace("{opponents}", findGameOpponent(queueMember, game)).
@@ -202,15 +228,16 @@ public class GameManager {
 
     }
 
-    public Set<Game> getGames() {
-        return games;
-    }
-
 
     private boolean canStart(final Game game) {
         return game.getQueue().size() == 2;
     }
 
+    /**
+     * @param game   the game a player was removed from
+     * @param player the player that got removed from the queue
+     *               This method deals with the situation where a player leaves the queue
+     */
     private void removeFromQueue(final Game game, final DuelPlayer player) {
 
         // remove a user from the queue, give them back the lobby items, and removing their team of the arena
@@ -253,6 +280,11 @@ public class GameManager {
         }.runTaskTimer(plugin, 0L, 20L);
     }
 
+    /**
+     * @param duelPlayer the player we are trying to get the oponent from
+     * @param game       the game the players are in
+     * @return the name of the oponent
+     */
     private String findGameOpponent(final DuelPlayer duelPlayer, final Game game) {
         // we're looking for the opponents from "duelPlayer"
 

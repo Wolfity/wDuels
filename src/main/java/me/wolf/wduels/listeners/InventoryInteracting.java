@@ -98,7 +98,7 @@ public class InventoryInteracting implements Listener {
                     } else {
                         if (plugin.getArenaManager().getFreeArena() != null) { // there is an available arena, get it, and pass it to a game that is recruiting
                             final Arena arena = plugin.getArenaManager().getFreeArena();
-                            final Game game = gameManager.createGame(arena, gameType);
+                            final Game game = gameManager.createGame(arena, gameType, false);
                             plugin.getGameHandler().setGameState(game, GameState.QUEUE);
                             gameManager.joinQueue(game, duelPlayer); // add user to queue
 
@@ -112,7 +112,7 @@ public class InventoryInteracting implements Listener {
                     } else {
                         if (plugin.getArenaManager().getFreeArena() != null) { // free arena + no available queue, create new game
                             final Arena arena = plugin.getArenaManager().getFreeArena();
-                            final Game game = gameManager.createGame(arena, GameType.UHC);
+                            final Game game = gameManager.createGame(arena, GameType.UHC, false);
                             plugin.getGameHandler().setGameState(game, GameState.QUEUE);
                             gameManager.joinQueue(game, duelPlayer);
 

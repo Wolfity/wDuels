@@ -114,6 +114,11 @@ public class DuelPlayer {
     public void sendCenteredMessage(final String s) {
         Utils.sendCenteredMessage(Bukkit.getPlayer(uuid), Utils.colorize(s));
     }
+    public void sendCenteredMessage(final String[] msg) {
+        for (final String s : msg) {
+            sendCenteredMessage(s);
+        }
+    }
 
     public void giveLobbyInv() {
         this.getInventory().addItem(ItemUtils.createItem(Material.DIAMOND_SWORD, "&aDuels &7(Click to queue)"));

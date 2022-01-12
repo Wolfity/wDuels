@@ -31,9 +31,5 @@ public class KillEffectManager {
         return killEffects;
     }
 
-    public KillEffect getDefaultEffect() {
-        return getKillEffectByName("default");
-    }
-
 
 }

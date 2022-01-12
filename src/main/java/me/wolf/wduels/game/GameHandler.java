@@ -15,10 +15,13 @@ public class GameHandler {
         this.plugin = plugin;
     }
 
-    private GameState gameState;
-
+    /**
+     * @param game      the game we are modifying the gamestate of
+     * @param gameState the gamestate
+     *                  Method that deals with every single event of a game
+     *                  and decides what happens when the game reaches a certain state
+     */
     public void setGameState(Game game, GameState gameState) {
-        this.gameState = gameState;
         switch (gameState) {
             case QUEUE:
                 game.setGameState(GameState.QUEUE);
