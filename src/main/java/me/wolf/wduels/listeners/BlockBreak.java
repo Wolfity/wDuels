@@ -18,7 +18,7 @@ public class BlockBreak implements Listener {
     @EventHandler
     public void onBreak(BlockBreakEvent event) {
         final Player player = event.getPlayer();
-        if(!plugin.getPlayerManager().getDuelPlayers().containsKey(player.getUniqueId())) return;
+        if (!plugin.getPlayerManager().getDuelPlayers().containsKey(player.getUniqueId())) return;
 
         final DuelPlayer duelPlayer = plugin.getPlayerManager().getDuelPlayer(player.getUniqueId());
         event.setCancelled(duelPlayer != null);

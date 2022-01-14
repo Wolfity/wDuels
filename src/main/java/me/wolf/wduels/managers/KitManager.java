@@ -22,12 +22,11 @@ import java.util.Set;
 public class KitManager {
 
     private final DuelsPlugin plugin;
+    private final Set<Kit> kits = new HashSet<>();
 
     public KitManager(final DuelsPlugin plugin) {
         this.plugin = plugin;
     }
-
-    private final Set<Kit> kits = new HashSet<>();
 
     /**
      * @param cfg kit config

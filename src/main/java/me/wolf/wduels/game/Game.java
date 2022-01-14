@@ -10,9 +10,9 @@ import java.util.Set;
 public class Game {
 
 
-    private GameType gameType;
     private final Set<DuelPlayer> queue;
     private final Arena arena;
+    private GameType gameType;
     private GameState gameState;
     private boolean isModifiable;
     private boolean isPrivate;
@@ -35,16 +35,16 @@ public class Game {
         return gameType;
     }
 
+    public void setGameType(GameType gameType) {
+        this.gameType = gameType;
+    }
+
     public GameState getGameState() {
         return gameState;
     }
 
     public void setGameState(GameState gameState) {
         this.gameState = gameState;
-    }
-
-    public void setGameType(GameType gameType) {
-        this.gameType = gameType;
     }
 
     public boolean isPrivate() {
@@ -59,12 +59,12 @@ public class Game {
         return arena;
     }
 
-    public void setModifiable(boolean modifiable) {
-        isModifiable = modifiable;
-    }
-
     public boolean isModifiable() {
         return isModifiable;
+    }
+
+    public void setModifiable(boolean modifiable) {
+        isModifiable = modifiable;
     }
 
     @Override

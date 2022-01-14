@@ -41,7 +41,7 @@ public class BlockPlace implements Listener {
         switch (game.getGameType()) {
             case UHC:
                 if (placedMat == Material.WOOD || placedMat == Material.COBBLESTONE) {
-                    if(game.isPrivate()) {
+                    if (game.isPrivate()) {
                         ((PrivateModifiableGame) game).getPlacedBlocks().add(event.getBlock().getLocation());
                     } else ((ModifiableGame) game).getPlacedBlocks().add(event.getBlock().getLocation());
                 } else {
@@ -66,7 +66,8 @@ public class BlockPlace implements Listener {
         if (game.getGameType() == GameType.UHC) {
             if (!game.isPrivate()) {
                 ((ModifiableGame) game).getPlacedBlocks().add(getPlacedLocation(event.getBlockClicked().getLocation(), event.getBlockFace()));
-            } else ((PrivateModifiableGame) game).getPlacedBlocks().add(getPlacedLocation(event.getBlockClicked().getLocation(), event.getBlockFace()));
+            } else
+                ((PrivateModifiableGame) game).getPlacedBlocks().add(getPlacedLocation(event.getBlockClicked().getLocation(), event.getBlockFace()));
         }
     }
 

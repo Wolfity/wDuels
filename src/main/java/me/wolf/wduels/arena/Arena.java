@@ -11,9 +11,9 @@ public class Arena {
     private final DuelsPlugin plugin;
 
     private final String name;
-    private int timer;
     private final Set<Team> teams;
     private final List<Location> spawns;
+    private int timer;
     private ArenaState state;
 
     public Arena(final DuelsPlugin plugin, final String name) {
@@ -27,8 +27,8 @@ public class Arena {
     }
 
     public Team getTeamByName(final String name) {
-        for(final Team team : teams) {
-            if(team.getName().equalsIgnoreCase(name)) {
+        for (final Team team : teams) {
+            if (team.getName().equalsIgnoreCase(name)) {
                 return team;
             }
         }

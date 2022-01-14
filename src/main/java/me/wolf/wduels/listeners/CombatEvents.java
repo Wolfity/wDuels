@@ -3,8 +3,8 @@ package me.wolf.wduels.listeners;
 import me.wolf.wduels.DuelsPlugin;
 import me.wolf.wduels.game.Game;
 import me.wolf.wduels.player.DuelPlayer;
+import me.wolf.wduels.utils.Utils;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -77,13 +77,8 @@ public class CombatEvents implements Listener {
     public void onRespawn(PlayerRespawnEvent event) { // setting the respawn location to the duels lobby
         if (plugin.getPlayerManager().getDuelPlayer(event.getPlayer().getUniqueId()) == null) return;
         plugin.getScoreboard().lobbyScoreboard(event.getPlayer());
-        event.setRespawnLocation(new Location(
-                Bukkit.getWorld(plugin.getConfig().getString("spawn.world")),
-                plugin.getConfig().getDouble("spawn.x"),
-                plugin.getConfig().getDouble("spawn.y"),
-                plugin.getConfig().getDouble("spawn.z"),
-                (float) plugin.getConfig().getDouble("spawn.pitch"),
-                (float) plugin.getConfig().getDouble("spawn.yaw")));
+        event.setRespawnLocation(Utils.stringToLoc(plugin.getConfig().getString("spawn").split(" ")));
+
     }
 
 

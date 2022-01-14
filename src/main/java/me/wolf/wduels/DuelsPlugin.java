@@ -1,7 +1,7 @@
 package me.wolf.wduels;
 
 import me.wolf.wduels.arena.ArenaManager;
-import me.wolf.wduels.commands.impl.DuelsCommand;
+import me.wolf.wduels.commands.DuelsCommand;
 import me.wolf.wduels.game.GameHandler;
 import me.wolf.wduels.listeners.*;
 import me.wolf.wduels.managers.*;

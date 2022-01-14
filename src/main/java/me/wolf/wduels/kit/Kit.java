@@ -9,8 +9,8 @@ import java.util.List;
 public class Kit {
 
 
-    private List<ItemStack> kitItems;
     private final GameType gameType;
+    private List<ItemStack> kitItems;
 
     public Kit(final GameType gameType) {
         this.gameType = gameType;
@@ -21,12 +21,12 @@ public class Kit {
         return kitItems;
     }
 
-    public GameType getGameType() {
-        return gameType;
-    }
-
     public void setKitItems(List<ItemStack> kitItems) {
         this.kitItems = kitItems;
+    }
+
+    public GameType getGameType() {
+        return gameType;
     }
 
     public String getName() {

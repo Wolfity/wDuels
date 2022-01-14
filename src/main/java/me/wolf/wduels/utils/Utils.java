@@ -1,15 +1,18 @@
 package me.wolf.wduels.utils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public final class Utils {
 
+    private Utils() {
+    }
+
     public static String colorize(final String input) {
         return input == null ? "Null value" : ChatColor.translateAlternateColorCodes('&', input);
     }
-
-
 
     public static String[] colorize(String... messages) {
         String[] colorized = new String[messages.length];
@@ -54,6 +57,21 @@ public final class Utils {
         player.sendMessage(sb + message);
     }
 
-    private Utils() {
+    public static String locationToString(final Location location) {
+        return location.getWorld().getName() + " " +
+                location.getX() + " " +
+                location.getY() + " " +
+                location.getZ() + " " +
+                location.getYaw() + " " +
+                location.getPitch();
+    }
+
+    public static Location stringToLoc(final String[] strings) {
+        return new Location(Bukkit.getWorld(strings[0]),
+                Double.parseDouble(strings[1]),
+                Double.parseDouble(strings[2]),
+                Double.parseDouble(strings[3]),
+                Float.parseFloat(strings[4]),
+                Float.parseFloat(strings[5]));
     }
 }

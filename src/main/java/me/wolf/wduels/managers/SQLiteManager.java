@@ -12,8 +12,8 @@ import java.util.UUID;
 
 public class SQLiteManager {
 
-    private HikariDataSource hikari;
     private final DuelsPlugin plugin;
+    private HikariDataSource hikari;
 
     // manager that handles any SQLite related stuff, saving data, loading data, creating data, etc...
 

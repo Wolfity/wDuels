@@ -14,6 +14,7 @@ import me.wolf.wduels.player.DuelPlayer;
 import me.wolf.wduels.player.PlayerState;
 import me.wolf.wduels.team.Team;
 import me.wolf.wduels.utils.ItemUtils;
+import me.wolf.wduels.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -29,12 +30,11 @@ import java.util.Set;
 public class GameManager {
 
     private final DuelsPlugin plugin;
+    private final Set<Game> games = new HashSet<>();
 
     public GameManager(final DuelsPlugin plugin) {
         this.plugin = plugin;
     }
-
-    private final Set<Game> games = new HashSet<>();
 
     /**
      * @param arena     the arena we are using for this game object
@@ -304,13 +304,8 @@ public class GameManager {
     }
 
     private void teleportToLobby(final Game game) {
-        game.getQueue().forEach(queueMember -> queueMember.getBukkitPlayer().teleport(new Location(
-                Bukkit.getWorld(plugin.getConfig().getString("spawn.world")),
-                plugin.getConfig().getDouble("spawn.x"),
-                plugin.getConfig().getDouble("spawn.y"),
-                plugin.getConfig().getDouble("spawn.z"),
-                (float) plugin.getConfig().getDouble("spawn.pitch"),
-                (float) plugin.getConfig().getDouble("spawn.yaw"))));
+        game.getQueue().forEach(queueMember -> queueMember.getBukkitPlayer().teleport(
+               Utils.stringToLoc(plugin.getConfig().getString("spawn").split(" "))));
 
     }
 

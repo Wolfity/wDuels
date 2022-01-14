@@ -14,18 +14,18 @@ import java.util.Set;
 public class WinEffectManager {
 
     private final DuelsPlugin plugin;
+    private final Set<WinEffect> winEffects = new HashSet<>();
+
     public WinEffectManager(final DuelsPlugin plugin) {
         this.plugin = plugin;
     }
-
-    private final Set<WinEffect> winEffects = new HashSet<>();
 
     public WinEffect getWinEffectByName(final String identifier) {
         return winEffects.stream().filter(winEffect -> winEffect.getName().equalsIgnoreCase(identifier)).findFirst().orElse(null);
     }
 
     public void loadWinEffects() { // cache win effects
-       addWinEffects(new DefaultWinEffect(), new ExplosionWinEffect(plugin), new FireworkWinEffect(plugin), new AngryVillagerWinEffect(plugin));
+        addWinEffects(new DefaultWinEffect(), new ExplosionWinEffect(plugin), new FireworkWinEffect(plugin), new AngryVillagerWinEffect(plugin));
     }
 
     private void addWinEffects(final WinEffect... winEffects) {

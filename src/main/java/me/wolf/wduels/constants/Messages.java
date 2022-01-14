@@ -4,20 +4,6 @@ import me.wolf.wduels.utils.Utils;
 
 public final class Messages {
 
-    public static final String HELP_MSG = "&7[----&aDuels Help&7----] \n" +
-            "&a/duel <user> &7- Sends a duel request to the user\n" +
-            "&a/duels join &7- Join the duels setup\n" +
-            "&a/duels leave &7- Leave the duels setup\n" +
-            "&a/duels available &7- Display all available arenas\n" +
-            "[------------------]";
-
-    public static final String ADMIN_HELP = "&7[----&cDuels Admin Help&7----]\n" +
-            "&a/duels <createarena> <name> &7- Create an arena\n" +
-            "&a/duels <deletearena <name> &7- Deletes an arena\n" +
-            "&a/duels <addspawn> <name> &7- Adds an arena spawn\n" +
-            "&a/duels <admin> &7- Shows the admin help message\n" +
-            "&a/duels setspawn &7- Sets the duel lobby spawn\n" +
-            "[----------------------]";
 
     public static final String ARENA_CREATED = Utils.colorize(
             "&aSuccessfully created the arena {arena}");

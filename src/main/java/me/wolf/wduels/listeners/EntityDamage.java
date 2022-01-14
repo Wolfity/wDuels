@@ -35,7 +35,7 @@ public class EntityDamage implements Listener {
         if (game == null) return;
         if (game.getGameType() == GameType.COMBO) { // set the max no damage ticks to 1 (combo)
             // allows you to hit the player more per tick
-            if(damager == null) return;
+            if (damager == null) return;
             if (event.getDamager().getUniqueId().equals(damager.getUuid())) {
                 ((Player) event.getEntity()).setMaximumNoDamageTicks(1);
             }

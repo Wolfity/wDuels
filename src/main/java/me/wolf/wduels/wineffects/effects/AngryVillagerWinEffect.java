@@ -12,6 +12,7 @@ import xyz.xenondevs.particle.ParticleEffect;
 
 public class AngryVillagerWinEffect extends WinEffect {
     private final DuelsPlugin plugin;
+
     public AngryVillagerWinEffect(final DuelsPlugin plugin) {
         super("angryvillager");
         this.plugin = plugin;
@@ -22,7 +23,7 @@ public class AngryVillagerWinEffect extends WinEffect {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if(getDuration() > 0) {
+                if (getDuration() > 0) {
                     decrementDuration();
                     new ParticleBuilder(ParticleEffect.VILLAGER_ANGRY, location)
                             .setAmount(30)

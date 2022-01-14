@@ -77,6 +77,7 @@ public class InventoryListeners implements Listener {
         final PlayerManager playerManager = plugin.getPlayerManager();
         final DuelPlayer sender = playerManager.getDuelPlayer(uuid); // one closing the inventory
 
+        if (event.getInventory().getName() == null) return;
 
         if (event.getInventory().getName().equalsIgnoreCase(Utils.colorize("&aSelect a private duel type!"))) { // sender is canceling
             if (playerManager.getPrivateGameRequests().containsKey(sender)) { // sender as key, he is confirmed as the sender

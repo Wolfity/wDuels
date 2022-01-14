@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 public abstract class KillEffect implements Comparable<KillEffect> {
 
     private final String name;
-    private String  permission;
+    private String permission;
 
     public KillEffect(final String name) {
         this.name = name;

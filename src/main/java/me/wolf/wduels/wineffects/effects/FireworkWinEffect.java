@@ -15,6 +15,7 @@ import java.awt.*;
 
 public class FireworkWinEffect extends WinEffect {
     private final DuelsPlugin plugin;
+
     public FireworkWinEffect(final DuelsPlugin plugin) {
         super("firework");
         this.plugin = plugin;
@@ -25,7 +26,7 @@ public class FireworkWinEffect extends WinEffect {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if(getDuration() > 0) {
+                if (getDuration() > 0) {
                     decrementDuration();
                     location.getWorld().spawnEntity(location, EntityType.FIREWORK);
                     new ParticleBuilder(ParticleEffect.FIREWORKS_SPARK, location)

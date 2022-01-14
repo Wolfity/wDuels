@@ -12,6 +12,7 @@ import xyz.xenondevs.particle.ParticleEffect;
 
 public class ExplosionWinEffect extends WinEffect {
     private final DuelsPlugin plugin;
+
     public ExplosionWinEffect(final DuelsPlugin plugin) {
         super("explosion");
         this.plugin = plugin;
@@ -22,7 +23,7 @@ public class ExplosionWinEffect extends WinEffect {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if(getDuration() > 0) {
+                if (getDuration() > 0) {
                     decrementDuration();
                     new ParticleBuilder(ParticleEffect.EXPLOSION_HUGE, location)
                             .setOffsetX(3)

@@ -44,18 +44,14 @@ public class ArenaManager {
 
                 arena.setTimer(cfg.getConfig().getInt("arenas." + ar + ".timer"));
 
-                for (int i = 1; i < 3; i++) {
-                    arena.addSpawn(new Location(Bukkit.getWorld(cfg.getConfig().getString("arenas." + ar + ".spawns." + i + ".world")),
-                            cfg.getConfig().getDouble("arenas." + ar + ".spawns." + i + ".x"),
-                            cfg.getConfig().getDouble("arenas." + ar + ".spawns." + i + ".y"),
-                            cfg.getConfig().getDouble("arenas." + ar + ".spawns." + i + ".z"),
-                            (float) cfg.getConfig().getDouble("arenas." + ar + ".spawns." + i + ".yaw"),
-                            (float) cfg.getConfig().getDouble("arenas." + ar + ".spawns." + i + ".pitch")));
+                for (int i = 0; i < 2; i++) {
+                    arena.addSpawn(Utils.stringToLoc(cfg.getConfig().getString("arenas." + ar + ".spawns." + i + ".spawn").split(" ")));
                 }
                 arenas.add(arena);
             }
 
         } catch (NullPointerException e) {
+            e.printStackTrace();
             Bukkit.getServer().getLogger().info(Utils.colorize("&4No Arenas were loaded!"));
         }
     }

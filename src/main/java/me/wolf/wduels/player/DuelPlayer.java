@@ -19,7 +19,7 @@ import java.util.UUID;
 public class DuelPlayer {
 
     private final UUID uuid;
-    private int  wins, kills;
+    private int wins, kills;
     private PlayerState state;
     private KillEffect killEffect;
     private WinEffect winEffect;
@@ -92,6 +92,7 @@ public class DuelPlayer {
     public void incrementKills() {
         this.kills++;
     }
+
     public void incrementWins() {
         this.wins++;
     }
@@ -114,6 +115,7 @@ public class DuelPlayer {
     public void sendCenteredMessage(final String s) {
         Utils.sendCenteredMessage(Bukkit.getPlayer(uuid), Utils.colorize(s));
     }
+
     public void sendCenteredMessage(final String[] msg) {
         for (final String s : msg) {
             sendCenteredMessage(s);
@@ -148,7 +150,7 @@ public class DuelPlayer {
     }
 
     public void clearEffects() {
-        for(PotionEffect effect : getBukkitPlayer().getActivePotionEffects()) {
+        for (PotionEffect effect : getBukkitPlayer().getActivePotionEffects()) {
             getBukkitPlayer().removePotionEffect(effect.getType());
         }
     }
